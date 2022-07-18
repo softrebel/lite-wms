@@ -20,16 +20,55 @@ entity Product {
     --
     * name : text
     * product subtype (Good, Service)
-    * description : text
+    description : text
+}
 
+
+entity ProductCategoryClassification {
+    * id : number <<generated>>
+    --
+    * Primary : bool
+    * from date : date
+    * thru date : date
+    description : text
+}
+
+entity ProductCategory {
+    * id : number <<generated>>
+    --
+    * product categorization (usage,industry,materials)
+
+}
+
+entity ProductCategoryRollup {
+    * id : number <<generated>>
+    --
+    * made up of : id
+    * part of containing: id 
 }
 
 
 
-Entity01 }|..|| Entity02
-Entity03 }o..o| Entity04
-Entity05 ||--o{ Entity06
-Entity07 |o--|| Entity08
+Product ||----|{ ProductCategoryClassification
+ProductCategoryClassification ||----|{ ProductCategory
+ProductCategory ||----|{ ProductCategoryRollup
+
+
+entity GoodIdentification {
+    * id : number <<generated>>
+    --
+    * id value : string
+}
+entity IdentificationType {
+    * id : number <<generated>>
+    --
+    * name
+    description : text
+}
+
+Product ||----|{ GoodIdentification
+IdentificationType ||----|{ GoodIdentification
+
 @enduml
 
 ```
