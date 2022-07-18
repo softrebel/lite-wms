@@ -19,8 +19,8 @@ entity Product {
     * id : number <<generated>>
     --
     * name : text
-    description : text
-
+    * product subtype (Good, Service)
+    * description : text
 
 }
 
