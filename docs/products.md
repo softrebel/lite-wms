@@ -1,7 +1,14 @@
 ## Product Overview
+<div dir="rtl">
+محصول شامل اجزای زیر است:
 
+- ویژگی
+- دسته بندی
+- شناسه‌های هویتی
+- واحد سنجش
+</div>
 
-### Information Engineering Relations
+### Product Relations
 | Type  | Symbol  |
 |---|---|
 |   Zero or One |  `|o--` |
@@ -68,6 +75,39 @@ entity IdentificationType {
 
 Product ||----|{ GoodIdentification
 IdentificationType ||----|{ GoodIdentification
+
+
+
+
+entity ProductFeature {
+    * id : number <<generated>>
+    --
+    * description : text
+}
+
+entity ProductFeatureCategory {
+    * id : number <<generated>>
+    --
+    * description : text
+}
+entity UnitOfMeasure {
+    * id : number <<generated>>
+    --
+    * abbreviation : text
+    * description : text
+}
+entity ProductFeatureApplicability {
+    * id : number <<generated>>
+    --
+    * from date : date
+    * thru date : date
+}
+
+
+Product ||----|{ ProductFeatureApplicability
+ProductFeatureApplicability ||----|{ ProductFeature
+ProductFeatureCategory ||----|{ ProductFeature
+UnitOfMeasure ||----|{ Product
 
 @enduml
 
