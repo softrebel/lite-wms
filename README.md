@@ -1,2 +1,2 @@
 # light-wms
-A light Warehouse Management System
+A lite Warehouse Management System
