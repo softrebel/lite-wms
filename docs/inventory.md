@@ -21,7 +21,13 @@
 entity InventoryItem {
     * id : number <<generated>>
     --
+    code : string
+}
+entity InventoryItemDetail {
+    * id : number <<generated>>
+    --
     serial number : string
+    quantity : number
 }
 entity InventoryItemVariance {
     * id : number <<generated>>
@@ -63,14 +69,15 @@ entity Product {
 
 
 
-InventoryItemStatusType ||----|{ InventoryItem
-InventoryItemVariance ||----|{ InventoryItem
-Container ||----|{ InventoryItem
+InventoryItemStatusType ||----|{ InventoryItemDetail
+InventoryItemVariance ||----|{ InventoryItemDetail
+Container ||----|{ InventoryItemDetail
 ContainerType ||----|{ Container
 Facility ||----|{ InventoryItem
 Facility ||----|{ Container
-Product ||----|{ InventoryItem
+Product ||----|{ InventoryItemDetail
 Reason ||----|{ InventoryItemVariance
+InventoryItem ||----|{ InventoryItemDetail
 @enduml
 
 ```
