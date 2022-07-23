@@ -81,3 +81,9 @@ InventoryItem ||----|{ InventoryItemDetail
 @enduml
 
 ```
+
+
+## Output
+
+
+![ERD](../out/docs/inventory/inventory.png "Inventory ERD")

@@ -112,3 +112,9 @@ UnitOfMeasure ||----|{ Product
 @enduml
 
 ```
+
+
+## Output
+
+
+![ERD](../out/docs/products/products.png "Products ERD")

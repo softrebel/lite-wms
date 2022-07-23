@@ -58,3 +58,9 @@ Party ||----|{ Person
 @enduml
 
 ```
+
+
+## Output
+
+
+![ERD](../out/docs/party/party.png "Party ERD")

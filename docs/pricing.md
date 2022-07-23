@@ -39,3 +39,9 @@ PartyType ||----|{ PriceComponent
 @enduml
 
 ```
+
+
+## Output
+
+
+![ERD](../out/docs/pricing/pricing.png "Pricing ERD")
