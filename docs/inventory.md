@@ -66,11 +66,14 @@ entity Product {
     * id : number <<generated>>
     --
 }
-
+entity Party {
+    * id : number <<generated>>
+    --
+}
 
 
 InventoryItemStatusType ||----|{ InventoryItemDetail
-InventoryItemVariance ||----|{ InventoryItemDetail
+InventoryItemDetail ||----|{ InventoryItemVariance
 Container ||----|{ InventoryItemDetail
 ContainerType ||----|{ Container
 Facility ||----|{ InventoryItem
@@ -78,6 +81,7 @@ Facility ||----|{ Container
 Product ||----|{ InventoryItemDetail
 Reason ||----|{ InventoryItemVariance
 InventoryItem ||----|{ InventoryItemDetail
+Party ||----|{ InventoryItem
 @enduml
 
 ```
