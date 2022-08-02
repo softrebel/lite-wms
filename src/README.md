@@ -1,4 +1,4 @@
-## Part 8 Local Setup
+## Local Setup
 
 1. `pip install -r requirements`
 2. Run the FastAPI server `python -m app.main`
