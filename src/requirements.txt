@@ -1,0 +1,10 @@
+uvicorn
+fastapi
+python-multipart
+pydantic
+pydantic[email]
+Jinja2
+SQLAlchemy
+tenacity
+greenlet
+pymssql

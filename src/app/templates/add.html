@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html dir="rtl">
+    {% include 'header.html' %}
+    <body>
+    {% include 'menu.html' %}
+
+
+    <div class="container">
+      {% if msg %}
+      <h3>{{msg}}</h3>
+      {% endif %}
+      <form action="" method="POST">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">انبار</label>
+          <select name="facilityId" class="form-select" aria-label="Default select example">
+            {% for facility in facilities %}
+                <option value="{{facility.Id}}">{{facility.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">قفسه</label>
+          <select name="containerId" class="form-select" aria-label="Default select example">
+            {% for container in containers %}
+                <option value="{{container.Id}}">{{container.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">کالا</label>
+          <select name="productId" class="form-select" aria-label="Default select example">
+            {% for product in products %}
+                <option value="{{product.Id}}">{{product.name}} - واحد سنجش: {{product.unitofmeasure.abbreviation}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">شماره سریال</label>
+          <input type="text" class="form-control" id="serialNumber" name="serialNumber">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">تعداد</label>
+          <input type="text" class="form-control" id="quantity" name="quantity">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">تاریخ</label>
+          <input type="date" class="form-control" id="fromDate" name="fromDate">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">ورود/خروج</label>
+          <select name="inventoryItemStatusTypeId" class="form-select" aria-label="Default select example">
+            {% for status_type in status_types %}
+                <option value="{{status_type.Id}}">{{status_type.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">طرف حساب</label>
+          <select name="partyId" class="form-select" aria-label="Default select example">
+            {% for party in parties %}
+                <option value="{{party.Id}}">{{party.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">ثبت</button>
+      </form>
+    </div>
+  </body>
+</html>

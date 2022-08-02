@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    {% include 'header.html' %}
+  <body>
+    {% include 'menu.html' %}
+
+
+    <div class="container">
+    <section class="">
+        <div class="card">
+           
+            <div class="card-body">
+            
+                <h1 class="card-title pb-4">گزارش ورود و خروج به انبارها</h1>
+
+
+                <form action="" method="get">
+                 
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">از تاریخ</label>
+                      <input type="date" class="form-control" id="fromDate" name="fromDate" value="{{fromDate}}">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">تا تاریخ</label>
+                      <input type="date" class="form-control" id="fromDate" name="thruDate" value="{{thruDate}}">
+                    </div>
+                      
+                    <div class="col-md-4"><button type="submit" class="btn btn-primary">مشاهده</button></div>
+                </form>
+
+<div class="table-responsive card-text">
+
+        <table class="table table-striped align-middle text-center">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                <th scope="col" class="px-5">انبار</th>
+                <th scope="col"  class="px-5">قفس</th>
+                <th scope="col"  class="px-5">کالا</th>
+                <th scope="col"  class="px-5">تعداد</th>
+                <th scope="col"  class="px-5">واحد</th>
+                <th scope="col"  class="px-5">ورود/خروج</th>
+                <th scope="col"  class="px-5">طرف حساب</th>
+                <th scope="col"  class="px-5">تاریخ</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for inventoryItem in inventoryItems %}
+                
+                    {% for inventoryItemDetail in inventoryItem.inventoryItemDetails %}
+                    <tr>
+                    <td class="align-middle">{{inventoryItem.facility.name}}</td>
+                    <td>{{inventoryItemDetail.container.name}}</td>
+                    <td>{{inventoryItemDetail.product.name}}</td>
+                    <td>{{inventoryItemDetail.quantity}}</td>
+                    <td>{{inventoryItemDetail.product.unitofmeasure.abbreviation}}</td>
+                    <td>{{inventoryItemDetail.inventoryitemstatustype.name}}</td>
+                    {% if inventoryItem.party.company|length >= 1 %}
+                        <td>{{inventoryItem.party.company[0].title }}</td>
+                    {% else %}
+                    <td>{{inventoryItem.party.person[0].firstName+' '+inventoryItem.party.person[0].lastName}}</td>
+                    {% endif %}
+                    
+                    
+                    <td>{{inventoryItem.fromDate}}</td>
+                </tr>
+                    {% endfor %}
+               
+                {% endfor %}
+
+        
+            </tbody>
+          </table></div>
+          </div>
+
+          </div>
+
+    </section>
+</div>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    {% include 'header.html' %}
+    <body>
+      {% include 'menu.html' %}
+
+    <div class="container">
+        <section>
+            
+<form action="" method="get">
+  <div class="row">
+    <div class="col-md-8 mb-3 form-check">
+        <select name="facilityId" class="form-select" aria-label="Default select example">
+            <option selected>انبار را انتخاب کنید</option>
+            {% for facility in facilities %}
+                <option value="{{facility.Id}}">{{facility.name}}</option>
+            {% endfor %}
+          </select>
+      </div>
+      <div class="col-md-4"><button type="submit" class="btn btn-primary">مشاهده</button></div>
+  </div>
+</form>
+
+        </section>
+        <section class="">
+            <div class="card">
+               
+                <div class="card-body">
+                
+                    <h1 class="card-title pb-4">موجودی انبار: {{facility.name}}</h1>
+    <div class="table-responsive card-text">
+    
+            <table class="table table-striped align-middle text-center">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                  <tr>
+                    <th scope="col" class="px-5">کالا</th>
+                    <th scope="col"  class="px-5">تعداد</th>
+                    <th scope="col"  class="px-5">واحد سنجش</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for item in result %}
+                
+           
+                        <tr>
+                        <td class="align-middle">{{item[0]}}</td>
+                        <td>{{item[1] if item[1] else 0}}</td>
+                        <td>{{item[2]}}</td>
+                    </tr>
+                   
+                    {% endfor %}
+    
+            
+                </tbody>
+              </table></div>
+              </div>
+    
+              </div>
+    
+        </section>
+    </div>
+  </body>
+</html>
